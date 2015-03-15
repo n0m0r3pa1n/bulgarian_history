@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2F2F2F"
+    tools:context="com.nmp90.bghistory.BaseDrawerActivity$PlaceholderFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#2F2F2F"
+        android:layout_marginTop="@dimen/main_first_row_margin_top"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+
+        <LinearLayout
+            android:id="@+id/btn_about_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="@dimen/main_icons_width"
+                android:layout_height="@dimen/main_icons_height"
+                android:background="@drawable/about_app_icon"
+                android:layout_gravity="center"
+                android:id="@+id/iv_about_app" />
+
+            <TextView
+                android:layout_width="@dimen/main_tv_width"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/white"
+                android:text="За приложението" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_toRightOf="@+id/btn_about_app"
+            android:layout_marginLeft="@dimen/main_right_col_margin_left"
+            android:orientation="vertical"
+            android:id="@+id/btn_years">
+
+            <ImageButton
+                android:layout_width="@dimen/main_icons_width"
+                android:layout_height="@dimen/main_icons_height"
+                android:id="@+id/iv_years"
+                android:background="@drawable/event_icon"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:text="Събития и години" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_capitals"
+            android:gravity="center"
+            android:layout_below="@id/btn_about_app"
+            android:layout_marginTop="100dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/iv_capitals"
+                android:layout_width="@dimen/main_icons_width"
+                android:layout_height="@dimen/main_icons_height"
+                android:src="@drawable/capitals_icon"
+                android:scaleType="centerCrop"
+                android:background="@drawable/image_bg" />
+
+            <TextView
+                android:layout_width="@dimen/main_tv_width"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="Столиците на България"
+                android:textAlignment="gravity"
+                android:phoneNumber="false"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_below="@id/btn_years"
+            android:layout_toRightOf="@id/btn_capitals"
+            android:layout_marginLeft="@dimen/main_right_col_margin_left"
+            android:id="@+id/btn_periods"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="@dimen/main_icons_width"
+                android:layout_height="@dimen/main_icons_height"
+                android:id="@+id/iv_periods"
+                android:background="@drawable/periods_icon"
+                android:layout_gravity="center"
+                android:baselineAlignBottom="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:text="Периоди на развитие" />
+        </LinearLayout>
+        <com.somkjebmua.aefdzebbln127275.AdView
+            xmlns:ap="http://schemas.android.com/libs/com.somkjebmua.aefdzebbln127275"
+            android:id="@+id/myAdView"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/btn_periods"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ap:animation="fade"
+            ap:banner_type="inappad"
+            ap:placementType="interstitial"
+            ap:test_mode="false"
+            ap:canShowMR="false"
+            />
+    </RelativeLayout>
+</ScrollView>
