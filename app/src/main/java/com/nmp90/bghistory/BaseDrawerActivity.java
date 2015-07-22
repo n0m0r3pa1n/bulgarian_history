@@ -11,7 +11,9 @@ import android.view.MenuItem;
 
 import com.crashlytics.android.Crashlytics;
 import com.nmp90.bghistory.fragments.StartFragment;
+
 import io.fabric.sdk.android.Fabric;
+
 
 public class BaseDrawerActivity extends BaseActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -32,7 +34,6 @@ public class BaseDrawerActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
-
         setContentView(R.layout.activity_main);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
