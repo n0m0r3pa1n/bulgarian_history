@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2F2F2F">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="7dp"
+            android:background="#2F2F2F"
+            >
+            <TextView
+                android:id="@+id/sEvent_Year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textSize="24sp"
+                android:textColor="@android:color/white"
+                />
+
+            <TextView
+                android:id="@+id/sEvent_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sEvent_Year"
+                android:layout_centerHorizontal="true"
+                android:textSize="19sp"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                />
+
+            <TextView
+                android:id="@+id/sEvent_Description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/sEvent_Title"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:textIsSelectable="true"
+                />
+
+            <TextView
+                android:id="@+id/sEvent_Place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/sEvent_Description"
+                android:textSize="19sp"
+                android:textStyle="italic"
+                android:textColor="@android:color/white"
+                />
+
+            <TextView
+                android:id="@+id/sEvent_Result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/sEvent_Place"
+                android:textSize="19sp"
+                android:textColor="@android:color/white"
+
+                />
+
+            <TextView
+                android:id="@+id/sEvent_Leader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/sEvent_Result"
+                android:textSize="19sp"
+                android:textStyle= "bold"
+                android:textColor="@android:color/white"
+                />
+        </RelativeLayout>
+</ScrollView>
