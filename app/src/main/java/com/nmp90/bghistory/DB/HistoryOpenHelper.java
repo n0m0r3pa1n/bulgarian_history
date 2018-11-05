@@ -5,9 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,6 +13,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+
+import timber.log.Timber;
 
 public class HistoryOpenHelper extends SQLiteOpenHelper {
     public static final String TAG = HistoryOpenHelper.class.getSimpleName();
@@ -54,16 +54,14 @@ public class HistoryOpenHelper extends SQLiteOpenHelper {
         File file = new File(DATABASE_PATH, DATABASE_NAME);
         boolean dbExist = file.exists();
 
-        if (dbExist) {
-
-            //Do nothing
-        } else {
+        if (!dbExist) {
             //Creating an empty database
             this.getReadableDatabase();
 
             try {
                 copyDataBase();
             } catch (IOException e) {
+                Timber.e(e);
                 throw new Error("Error copying database!");
             }
             this.close();
@@ -140,7 +138,7 @@ public class HistoryOpenHelper extends SQLiteOpenHelper {
 
             events.add(historyEvent);
         }
-        c.close();
+        closeCursor(c);
         return events;
     }
 
@@ -158,9 +156,9 @@ public class HistoryOpenHelper extends SQLiteOpenHelper {
                 results.add(new CapitalSimpleModel(c.getInt(0), c.getString(1), c.getString(2)));
             }
         } catch (Exception e) {
-            Log.e(TAG, "Error ", e);
+            Timber.e(e);
         } finally {
-            c.close();
+            closeCursor(c);
         }
 
         return results;
@@ -183,8 +181,9 @@ public class HistoryOpenHelper extends SQLiteOpenHelper {
 
             }
         } catch (Exception e) {
+            Timber.e(e);
         } finally {
-            c.close();
+            closeCursor(c);
         }
 
         return capital;
@@ -208,8 +207,9 @@ public class HistoryOpenHelper extends SQLiteOpenHelper {
 
             }
         } catch (Exception e) {
+            Timber.e(e);
         } finally {
-            c.close();
+            closeCursor(c);
         }
 
         return historyEvent;
@@ -228,11 +228,18 @@ public class HistoryOpenHelper extends SQLiteOpenHelper {
                 result.add(c.getString(0));
             }
         } catch (Exception e) {
+            Timber.e(e);
         } finally {
-            c.close();
+            closeCursor(c);
         }
 
         return result;
+    }
+
+    private void closeCursor(Cursor cursor) {
+        if (cursor != null) {
+            cursor.close();
+        }
     }
 
     public ArrayList<HistoryEventModel> getDialogEvents(String fieldSearched, String valueSearched) {
@@ -250,32 +257,8 @@ public class HistoryOpenHelper extends SQLiteOpenHelper {
 
             events.add(historyEvent);
         }
-        c.close();
+        closeCursor(c);
         return events;
     }
-
-    public int getDatabaseVersion() {
-
-        SQLiteDatabase checkDB = null;
-
-        try {
-
-            String path = DATABASE_PATH + DATABASE_NAME;
-
-            checkDB = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
-
-        } catch (SQLiteException e) {
-            //
-        }
-
-        int version = checkDB.getVersion();
-
-        if (checkDB != null) {
-            checkDB.close();
-        }
-        return version;
-
-    }
-
 }
 

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -187,10 +186,7 @@ public class NavigationDrawerFragment extends Fragment {
                     SharedPreferences sp = PreferenceManager
                             .getDefaultSharedPreferences(getActivity());
 
-                    if(Build.VERSION.SDK_INT > 8)
-                        sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
-                    else
-                        sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).commit();
+                    sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
 
                 }
 
@@ -304,7 +300,7 @@ public class NavigationDrawerFragment extends Fragment {
     /**
      * Callbacks interface that all activities using this fragment must implement.
      */
-    public static interface NavigationDrawerCallbacks {
+    public interface NavigationDrawerCallbacks {
         /**
          * Called when an item in the navigation drawer is selected.
          */

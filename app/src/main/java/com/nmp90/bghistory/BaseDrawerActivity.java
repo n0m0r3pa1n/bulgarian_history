@@ -18,8 +18,6 @@ import io.fabric.sdk.android.Fabric;
 public class BaseDrawerActivity extends BaseActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
-    private static final int START_SCREEN = -1;
-
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
