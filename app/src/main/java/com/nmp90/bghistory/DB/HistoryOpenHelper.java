@@ -7,6 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -16,6 +17,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 
 public class HistoryOpenHelper extends SQLiteOpenHelper {
+    public static final String TAG = HistoryOpenHelper.class.getSimpleName();
 
     private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "BGHISTORY_v3";
@@ -156,6 +158,7 @@ public class HistoryOpenHelper extends SQLiteOpenHelper {
                 results.add(new CapitalSimpleModel(c.getInt(0), c.getString(1), c.getString(2)));
             }
         } catch (Exception e) {
+            Log.e(TAG, "Error ", e);
         } finally {
             c.close();
         }
